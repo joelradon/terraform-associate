@@ -1,0 +1,27 @@
+Stuff that needs to be done manually:
+
+Copy over vpn config:
+ssh ubuntu@PUBLIC_IP "sudo cat /root/client.ovpn" > ~/client.ovpn 
+
+Connect Wazuh plugin to Wazuh-api
+cat /root/wazuh-api.txt
+
+Change ip in filebeat to elasticsearch ip
+sudo sed -i 's/127.0.0.1/10.0.3.xxx/' /etc/filebeat/filebeat.yml
+systemctl restart filebeat
+
+Wazuh agents need to connect to Wazuh manager
+sudo /var/ossec/bin/agent-auth -m wazuh01.mars.gov
+sudo sed -i 's/MANAGER_IP/wazuh01.mars.gov/' /var/ossec/etc/ossec.conf 
+systemctl restart wazuh-agent
+
+Need to add this to agent config
+  <localfile>
+    <log_format>json</log_format>
+    <location>/var/log/suricata/eve.json</location>
+  </localfile>
+
+Must restart agent:
+ systemctl restart wazh-agent
+
+Must ensure elasticsearch is bound to it's private IP

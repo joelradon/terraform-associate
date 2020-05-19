@@ -1,0 +1,20 @@
+#************************************************
+#Set Project Name and VPC_ID like this:
+# project_name   = "MyCoolVPC"
+# vpc_id         = "aws_vpc.MyCoolVPC.id"
+#************************************************
+project_name = "terraform_associate_env"
+vpc_cidr = "10.114.0.0/16"
+vpn_subnet_cidr = "10.114.1.0/24"
+web_subnet_cidr = "10.114.2.0/24"
+mgmt_subnet_cidr = "10.114.3.0/24"
+region = "us-east-1"
+vpn_az = "us-east-1a"
+web_az = "us-east-1a"
+mgmt_az = "us-east-1a"
+my_ip = "97.68.113.206/32"
+arn = "aws-us-gov"
+trailprefix = "terraform-associate-env-"
+remote_state_bucket = "terrraform-associate"
+remote_state_key = "terraform_associate_infrastructure"
+remote_state_region = "us-east-1"
